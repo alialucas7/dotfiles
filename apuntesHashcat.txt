@@ -1,0 +1,114 @@
+# estos son mis apuntes para usar hashcat by luc4s
+
+
+## paquetes que debo instalar
+opencl-amd - link: https://aur.archlinux.org/packages/opencl-amd
+pocl       - link: https://archlinux.org/packages/extra/x86_64/pocl/
+
+
+# el comando 
+$ hashcat -I
+
+#se tiene q ver algo parecido a esto 
+
+
+hashcat (v6.2.6) starting in backend information mode
+
+HIP Info:
+=========
+
+HIP.Version.: 6.4.43482
+
+Backend Device ID #1 (Alias: #2)
+Name...........: AMD Radeon RX 560 Series
+Processor(s)...: 16
+Clock..........: 1199
+Memory.Total...: 4096 MB
+Memory.Free....: 4074 MB
+Local.Memory...: 64 KB
+PCI.Addr.BDFe..: 0000:01:00.0
+
+OpenCL Info:
+============
+OpenCL Platform ID #1
+Vendor..: Advanced Micro Devices, Inc.
+Name....: AMD Accelerated Parallel Processing
+Version.: OpenCL 2.1 AMD-APP (3380.4)
+
+Backend Device ID #2 (Alias: #1)
+Type...........: GPU
+Vendor.ID......: 1
+Vendor.........: Advanced Micro Devices, Inc.
+Name...........: AMD Radeon RX 560 Series
+Version........: OpenCL 2.0 AMD-APP (3380.4)
+Processor(s)...: 16
+Clock..........: 1199
+Memory.Total...: 4096 MB (limited to 3264 MB allocatable in one block)
+Memory.Free....: 3968 MB
+Local.Memory...: 64 KB
+OpenCL.Version.: OpenCL C 2.0
+Driver.Version.: 3380.4 (PAL,HSAIL)
+PCI.Addr.BDF...: 01:00.0
+
+OpenCL Platform ID #2
+Vendor..: The pocl project
+Name....: Portable Computing Language
+Version.: OpenCL 3.0 PoCL 6.1-pre makepkg-0-g3b6e5c4b4  Linux, Release, RELOC, LLVM 19.1.7, SLEEF, DISTRO, CUDA, POCL_DEBUG
+
+Backend Device ID #3
+Type...........: CPU
+Vendor.ID......: 1
+Vendor.........: AuthenticAMD
+Name...........: cpu-znver4-AMD Ryzen 5 4500 6-Core Processor
+Version........: OpenCL 3.0 PoCL HSTR: cpu-x86_64-pc-linux-gnu-znver4
+Processor(s)...: 12
+Clock..........: 4211
+Memory.Total...: 11758 MB (limited to 5879 MB allocatable in one block)
+Memory.Free....: 5847 MB
+Local.Memory...: 512 KB
+OpenCL.Version.: OpenCL C 1.2 PoCL
+Driver.Version.: 6.1-pre makepkg-0-g3b6e5c4b4
+
+OpenCL Platform ID #3
+Vendor..: Advanced Micro Devices, Inc.
+Name....: AMD Accelerated Parallel Processing
+Version.: OpenCL 2.1 AMD-APP (3649.0)
+
+
+
+
+### comando de ejemplo
+hashcat  hashEthan.txt /snap/wordlist/rockyou.txt --force --backend-ignore-hip
+
+#una ves que crackea, para ver agregar solo el comando --show al final
+hashcat  hashEthan.txt /snap/wordlist/rockyou.txt --force --backend-ignore-hip --show
+
+
+
+
+
+
+
+
+EXTRA
+COMO USAR hashid
+## hasid  -> para ver el tipo de hash que es
+para ello uso el siguiente link de github: https://github.com/psypanda/hashID
+
+
+
+ejemplo de ejecucion:
+python3 hashid.py -mj hash.txt
+
+El ejecutable se encuentra en /home/alialucas7/hashid/hashid.py
+cree un binario en /usr/local/bin/hashid    /** el 24/04/25 **/
+=> ahora se ejecuta asi:
+
+$ hashid -m  '$racf$*AAAAAAAA*3c44ee7f409c9a9b'
+
+
+-m -> parametro q hace referencia a hashcat
+-j -> parametro q hace referencia a john
+
+
+
