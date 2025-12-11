@@ -12,7 +12,7 @@ function show_ip {
 	  
 	fi
 
-	"/home/alialucas77/.scripts/dwm/update_all.sh"
+	"/home/alialucas7/.scripts/dwm/update_all.sh"
 
 } 
 show_ip
